@@ -80,6 +80,7 @@ class PugBuilder {
     if (!path.isAbsolute(file)) {
       file = path.join(process.cwd(), file);
     }
+    file = file.replace(path.resolve(this.config.target), path.resolve(this.config.output));
     const fileName = file.replace(/\.[^.]*$/, '.html');
     fs.writeFileSync(fileName, html);
     this.log(`output ${colors.green(fileName)}`);
