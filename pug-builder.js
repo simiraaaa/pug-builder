@@ -4,6 +4,7 @@ const pug = require('pug');
 const chokidar = require('chokidar');
 const colors = require('colors/safe');
 const moment = require('moment');
+const mkdirp = require('mkdirp');
 
 class PugBuilder {
   constructor(config) {
@@ -82,8 +83,15 @@ class PugBuilder {
     }
     file = file.replace(path.resolve(this.config.target), path.resolve(this.config.output));
     const fileName = file.replace(/\.[^.]*$/, '.html');
-    fs.writeFileSync(fileName, html);
-    this.log(`output ${colors.green(fileName)}`);
+
+    mkdirp(path.dirname(fileName), (err) => {
+      if (err) {
+        console.error(err);
+        return;
+      }
+      fs.writeFileSync(fileName, html);
+      this.log(`output ${colors.green(fileName)}`);
+    });
   }
 
   createWatcher() {
