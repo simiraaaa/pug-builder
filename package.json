@@ -1,0 +1,30 @@
+{
+  "name": "pug-builder",
+  "version": "0.0.1",
+  "description": "pug watch and build. pug ファイルを監視して自動ビルド",
+  "main": "pug-builder.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/simiraaaa/pug-builder.git"
+  },
+  "keywords": [
+    "pug",
+    "watch",
+    "build"
+  ],
+  "author": "simiraaaa",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/simiraaaa/pug-builder/issues"
+  },
+  "homepage": "https://github.com/simiraaaa/pug-builder#readme",
+  "dependencies": {
+    "chokidar": "^2.1.2",
+    "colors": "^1.3.3",
+    "moment": "^2.24.0",
+    "pug": "^2.0.3"
+  }
+}
