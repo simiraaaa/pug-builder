@@ -124,8 +124,10 @@ class PugBuilder {
       this._includesWatcher = chokidar.watch(path.join(this.config.includes, '**', '*.pug'), {
         ignored: /[\/\\]\./,
         persistent: true,
-      }).on('change', () => {
-        this.compile(this.IS_INCLUDES);
+      }).once('ready', () => {
+        this._includesWatcher.on('change', () => {
+          this.compile(this.IS_INCLUDES);
+        });
       });
     }
 
