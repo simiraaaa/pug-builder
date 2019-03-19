@@ -135,6 +135,10 @@ class PugBuilder {
   close() {
     this.watcher && this.watcher.close();
     this.watcher = null;
+    if (this._includesWatcher) {
+      this._includesWatcher.close();
+      this._includesWatcher = null;
+    }
     return this;
   }
 }
