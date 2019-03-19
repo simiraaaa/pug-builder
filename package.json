@@ -1,6 +1,6 @@
 {
   "name": "pug-builder",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "pug watch and build. pug ファイルを監視して自動ビルド",
   "main": "pug-builder.js",
   "scripts": {
