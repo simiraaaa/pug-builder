@@ -4,20 +4,19 @@ pug to html
 build and watch
 
 1. npm を install
-2. yarn をインストール `npm i -g yarn`
-3. 作業したいディレクトリへ移動
-4. `npm init -y` package.json 作成
-5. 開発用に pug-builder をインストール `npm i -D pug-builder`
-6. package.json の scripts に以下のコマンドを追加
+2. 作業したいディレクトリへ移動
+3. `npm init -y` package.json 作成
+4. 開発用に pug-builder をインストール `npm i -D pug-builder`
+5. package.json の scripts に以下のコマンドを追加
 ```
   "scripts": {
     "build": "node ./dev/build.js",
     "watch": "node ./dev/watch.js"
   },
 ```
-7. 作業ディレクトリ(以下 wd) に dev フォルダ作成
-8. `wd/dev/build.js` と `wd/dev/watch.js` を作成
-9. build.js の中身を以下のように書く(パスはすべてwdからの相対パス)
+6. 作業ディレクトリ(以下 wd) に dev フォルダ作成
+7. `wd/dev/build.js` と `wd/dev/watch.js` を作成
+8. build.js の中身を以下のように書く(パスはすべてwdからの相対パス)
 ```
 var builder = require('pug-builder');
 builder.build({
@@ -31,7 +30,7 @@ builder.build({
   pretty: true,
 });
 ```
-10. watch.js も以下のようにします
+9. watch.js も以下のようにします
 ```
 var builder = require('pug-builder');
 builder.watch({
@@ -45,3 +44,5 @@ builder.watch({
   pretty: true,
 });
 ```
+10. wd で `npm run build` と実行すると target で指定したディレクトリ内の pug ファイルがすべて html に変換され output で指定したディレクトリに出力されます
+11. `npm run watch` と実行すると target と includes で指定したディレクトリの編集を監視して自動でbuildを実行します。
